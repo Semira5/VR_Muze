@@ -14,19 +14,22 @@ void UOSY_PropWidget::NativeConstruct()
 
 void UOSY_PropWidget::SpawnBox()
 {
+	FVector spawnLoc = FVector(0,0,0);
+	FRotator spawnRot = FRotator(0,0,0);
+
 	UWorld* World = GetWorld();
 	if (World)
 	{
-		//버튼 클릭하면
-		//스폰
-		//어디에?
-		//맵의 지정된 위치에
-
+		
 		FActorSpawnParameters param;
-		FVector spawnLoc = FVector(0,0,0);
-		FRotator spawnRot = FRotator(0,0,0);
 		param.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
-		//AKJS_TestSpawnActor* Cube = World->SpawnActor<AKJS_TestSpawnActor>(AKJS_TestSpawnActor::StaticClass(), spawnLoc, spawnRot, param);
+		AActor* SpawnedProp = World->SpawnActor<AActor>(proptest, spawnLoc, spawnRot);
+
+		if (SpawnedProp)
+		{
+			// 스폰에 성공하면 추가적인 설정 및 로직을 구현할 수 있습니다.
+			// 예를 들어, 프롭을 조작하거나 다른 작업을 수행할 수 있습니다.
+		}
 		
 	}
 }

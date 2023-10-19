@@ -3,6 +3,8 @@
 
 #include "MyCharacter.h"
 #include "Components/BoxComponent.h"
+#include "GameFramework/PlayerController.h"
+
 
 // Sets default values
 AMyCharacter::AMyCharacter()
@@ -19,7 +21,18 @@ AMyCharacter::AMyCharacter()
 void AMyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	if (APlayerController* PlayerController = Cast<APlayerController>(Controller))
+	{
+// 		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
+// 		{
+// 			Subsystem->AddMappingContext(DefaultMappingContext, 0);
+// 		}
+		if (PlayerController != nullptr)
+		{
+			PlayerController->bShowMouseCursor = true;
+		}
+	}
 }
 
 // Called every frame

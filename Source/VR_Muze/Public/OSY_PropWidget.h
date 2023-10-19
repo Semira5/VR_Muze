@@ -21,6 +21,9 @@ public:
 	UPROPERTY(VisibleAnywhere, meta=(BindWidget), Category=Button)
 	class UButton* btn_BoxSpawn;
 
+	UPROPERTY(EditAnywhere, Category= MySettings)
+	TSubclassOf<class AActor> proptest;
+
 	//UPROPERTY(VisibleAnywhere)
 	//class AKJS_TestSpawnActor* Cube;
 
