@@ -14,4 +14,20 @@ class VR_MUZE_API UOSY_PropWidget : public UUserWidget
 {
 	GENERATED_BODY()
 	
+public:
+	virtual void NativeConstruct() override;
+
+public:
+	UPROPERTY(VisibleAnywhere, meta=(BindWidget), Category=Button)
+	class UButton* btn_BoxSpawn;
+
+	//UPROPERTY(VisibleAnywhere)
+	//class AKJS_TestSpawnActor* Cube;
+
+
+public:
+	UFUNCTION()
+	void SpawnBox();
+
+	
 };
